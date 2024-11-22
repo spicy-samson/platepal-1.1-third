@@ -1,6 +1,7 @@
 [
     {
         "Recipe Name": "Chicken Adobo",
+        "Cooking Time": "50-60 min",
         "Servings": 4,
         "Ingredients": [
             "1 kg chicken (thighs, drumsticks, or a mix), cut into serving pieces",
@@ -23,6 +24,7 @@
     },
     {
         "Recipe Name": "Sinigang na Baboy",
+        "Cooking Time": "60-70 min",
         "Servings": 4,
         "Ingredients": [
             "500g pork belly or ribs, cut into serving pieces",
@@ -52,6 +54,7 @@
     },
     {
         "Recipe Name": "Kare-Kare",
+        "Cooking Time":"90-120 min",
         "Servings": 4,
         "Ingredients": [
             "500g pork belly or pork hocks, cut into serving pieces",
@@ -80,6 +83,7 @@
     },
     {
         "Recipe Name": "Pinakbet",
+        "Cooking Time": "40-50 min",
         "Servings": 4,
         "Ingredients": [
             "300g pork belly or liempo, sliced into small pieces",
@@ -108,6 +112,7 @@
     },
     {
         "Recipe Name": "Laing",
+        "Cooking Time": "45-60 min",
         "Servings": 4,
         "Ingredients": [
             "2 cups dried taro leaves (dahon ng gabi)",
@@ -135,6 +140,7 @@
     },
     {
         "Recipe Name": "Pork Menudo",
+        "Cooking Time": "60-75 min",
         "Servings": 4,
         "Ingredients": [
             "500g pork belly or shoulder, cut into small cubes",
@@ -168,6 +174,7 @@
     },
     {
         "Recipe Name": "Ginisang Kalabasa",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "500g squash (kalabasa), peeled and cubed",
@@ -194,6 +201,7 @@
     },
     {
         "Recipe Name": "Ginisang Pechay with Pork",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "300g pork belly, thinly sliced",
@@ -221,6 +229,7 @@
     },
     {
         "Recipe Name": "Ginisang Upo with Pork",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "300g pork belly or pork shoulder, thinly sliced",
@@ -247,6 +256,7 @@
     },
     {
         "Recipe Name": "Ginisang Talong with Pork",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "300g pork belly or pork shoulder, thinly sliced",
@@ -274,6 +284,7 @@
     },
     {
         "Recipe Name": "Ginataang Kalabasa with Crabs",
+        "Cooking Time": "50-60 min",
         "Servings": 4,
         "Ingredients": [
             "500g crabs (preferably mud crabs or blue crabs), cleaned and halved",
@@ -303,6 +314,7 @@
     },
     {
         "Recipe Name": "Kusidong Bangus",
+        "Cooking Time": "40-50 min",
         "Servings": 4,
         "Ingredients": [
             "1 medium bangus (milkfish), cleaned and filleted",
@@ -330,6 +342,7 @@
     },
      {
         "Recipe Name": "Paksiw na Tilapia",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "4 medium tilapia, cleaned and gutted",
@@ -358,6 +371,7 @@
     },
     {
         "Recipe Name": "Ginataang Sitaw",
+        "Cooking Time": "40-50 min",
         "Servings": 4,
         "Ingredients": [
             "2 cups string beans (sitaw), cut into 2-inch lengths",
@@ -386,6 +400,7 @@
     },
     {
         "Recipe Name": "Tinola",
+        "Cooking Time": "45-60 min",
         "Servings": 4,
         "Ingredients": [
             "500g chicken (preferably bone-in pieces like thighs or drumsticks)",
@@ -415,6 +430,7 @@
     },
     {
         "Recipe Name": "Halo-Halo",
+        "Cooking Time": "20-30 min",
         "Servings": 4,
         "Ingredients": [
             "1 cup shaved ice (or crushed ice)",
@@ -443,6 +459,7 @@
     },
     {
         "Recipe Name": "Leche Flan",
+        "Cooking Time": "60-90 min",
         "Servings": 4,
         "Ingredients": [
             "1 can (390g) condensed milk",
@@ -466,6 +483,7 @@
     },
     {
         "Recipe Name": "Turon (Banana Lumpia)",
+        "Cooking Time": "20-30 min",
         "Servings": 4,
         "Ingredients": [
             "4 large saba bananas (or plantains), peeled and sliced into thin strips",
@@ -489,6 +507,7 @@
     },
     {
         "Recipe Name": "Ukoy (Shrimp Fritters)",
+        "Cooking Time": "30-40 min",
         "Servings": 4,
         "Ingredients": [
             "1/2 lb (225g) small shrimp, peeled and deveined",

@@ -165,6 +165,11 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
                   ? fixedData['Nutritional Info']['Calories']
                   : 'Calories not available'; // Default message if Calories are not found
 
+              final cooking_time = fixedData.isNotEmpty &&
+                      fixedData['Cooking Time'] != null
+                  ? fixedData['Cooking Time']
+                  : 'Calories not available'; // Default message if Calories are not found
+
               final youtube_channel =
                   fixedData.isNotEmpty && fixedData['Youtube Channel'] != null
                       ? fixedData['Youtube Channel']
@@ -184,7 +189,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _buildRecipeInfo(recipe, calories),
+                          _buildRecipeInfo(cooking_time, calories),
                           _buildServingAdjuster(),
                           const SizedBox(height: 16),
                           if (recipe['vid'] != null)
@@ -274,7 +279,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     );
   }
 
-  Widget _buildRecipeInfo(Map<String, dynamic> recipe, String calories) {
+  Widget _buildRecipeInfo(String cooking_time, String calories) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -285,7 +290,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildInfoColumn('Difficulty', recipe['difficulty']),
+          _buildInfoColumn('Cooking Time', cooking_time),
           _buildNutritionRow('Calories: ', calories, 'kcal'),
         ],
       ),
