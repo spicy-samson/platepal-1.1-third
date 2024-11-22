@@ -1,0 +1,522 @@
+[
+    {
+        "Recipe Name": "Chicken Adobo",
+        "Servings": 4,
+        "Ingredients": [
+            "1 kg chicken (thighs, drumsticks, or a mix), cut into serving pieces",
+            "1/2 cup soy sauce",
+            "1/2 cup vinegar",
+            "6 cloves garlic, minced",
+            "1 tsp whole peppercorns",
+            "3 bay leaves"
+        ],
+        "Nutritional Info": {
+            "Calories": "350 kcal",
+            "Protein": "30g",
+            "Carbohydrates": "5g",
+            "Fat": "23g",
+            "Saturated Fat": "5g",
+            "Cholesterol": "95mg"
+        },
+        "Youtube Channel": "Recipetineats",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Sinigang na Baboy",
+        "Servings": 4,
+        "Ingredients": [
+            "500g pork belly or ribs, cut into serving pieces",
+            "6 cups water",
+            "1 medium onion, quartered",
+            "2 medium tomatoes, quartered",
+            "1 radish (labanos), sliced into rounds",
+            "1 cup long green beans (sitaw), cut into 2-inch pieces",
+            "1 medium eggplant, sliced into rounds",
+            "1 cup water spinach (kangkong) or other leafy greens",
+            "2 pieces green chili peppers (siling pangsigang)",
+            "1 packet tamarind soup mix (or 1/4 cup fresh tamarind pulp, boiled and strained)",
+            "2 tbsp fish sauce",
+            "Salt to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "350 kcal",
+            "Protein": "20g",
+            "Carbohydrates": "10g",
+            "Fat": "25g",
+            "Saturated Fat": "8g",
+            "Cholesterol": "70mg",
+            "Sodium": "900mg"
+        },
+        "Youtube Channel": "Fried Cheap Menu",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Kare-Kare",
+        "Servings": 4,
+        "Ingredients": [
+            "500g pork belly or pork hocks, cut into serving pieces",
+            "6 cups water",
+            "1 small bundle string beans (sitaw), cut into 2-inch pieces",
+            "1 medium eggplant, sliced into rounds",
+            "1 cup banana blossom, sliced (optional)",
+            "1/2 cup peanut butter",
+            "1/4 cup annatto water (from soaked annatto seeds, or 1 tsp annatto powder dissolved in water)",
+            "2 tbsp rice flour, toasted (or cornstarch, for thickening)",
+            "2 tbsp fish sauce or salt to taste",
+            "2 tbsp cooking oil",
+            "Shrimp paste (bagoong), for serving"
+        ],
+        "Nutritional Info": {
+            "Calories": "400 kcal",
+            "Protein": "22g",
+            "Carbohydrates": "10g",
+            "Fat": "30g",
+            "Saturated Fat": "8g",
+            "Cholesterol": "65mg",
+            "Sodium": "850mg"
+        },
+        "Youtube Channel": "Pinoy Simple Cooking",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Pinakbet",
+        "Servings": 4,
+        "Ingredients": [
+            "300g pork belly or liempo, sliced into small pieces",
+            "1 medium bitter melon (ampalaya), sliced",
+            "1 medium eggplant, sliced into rounds",
+            "1 cup squash (kalabasa), peeled and cubed",
+            "1 cup string beans (sitaw), cut into 2-inch pieces",
+            "2 medium tomatoes, chopped",
+            "1 medium onion, chopped",
+            "2 cloves garlic, minced",
+            "1/2 cup water",
+            "3 tbsp shrimp paste (bagoong alamang)",
+            "2 tbsp cooking oil"
+        ],
+        "Nutritional Info": {
+            "Calories": "300 kcal",
+            "Protein": "15g",
+            "Carbohydrates": "15g",
+            "Fat": "20g",
+            "Saturated Fat": "7g",
+            "Cholesterol": "50mg",
+            "Sodium": "900mg"
+        },
+        "Youtube Channel": "Josie's Pinoy Kitchen",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Laing",
+        "Servings": 4,
+        "Ingredients": [
+            "2 cups dried taro leaves (dahon ng gabi)",
+            "1 1/2 cups coconut milk",
+            "1 cup coconut cream",
+            "200g pork belly, diced (optional)",
+            "3 cloves garlic, minced",
+            "1 medium onion, chopped",
+            "1 thumb-sized ginger, sliced into strips",
+            "3-4 pieces chili peppers (siling labuyo or siling haba)",
+            "2 tbsp shrimp paste (bagoong alamang) or 1 tbsp fish sauce",
+            "2 tbsp cooking oil"
+        ],
+        "Nutritional Info": {
+            "Calories": "320 kcal",
+            "Protein": "10g",
+            "Carbohydrates": "15g",
+            "Fat": "25g",
+            "Saturated Fat": "18g",
+            "Cholesterol": "20mg",
+            "Sodium": "900mg"
+        },
+        "Youtube Channel": "Get Cookin'",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Pork Menudo",
+        "Servings": 4,
+        "Ingredients": [
+            "500g pork belly or shoulder, cut into small cubes",
+            "150g pork liver, diced (optional)",
+            "1 medium potato, diced",
+            "1 medium carrot, diced",
+            "1 small red bell pepper, diced",
+            "1 small green bell pepper, diced",
+            "1/2 cup tomato sauce",
+            "1/4 cup tomato paste",
+            "1/4 cup green peas (optional)",
+            "3 cloves garlic, minced",
+            "1 medium onion, chopped",
+            "2 tbsp soy sauce",
+            "1 tbsp fish sauce",
+            "1 cup water or pork broth",
+            "2 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "400 kcal",
+            "Protein": "25g",
+            "Carbohydrates": "20g",
+            "Fat": "25g",
+            "Saturated Fat": "8g",
+            "Cholesterol": "90mg",
+            "Sodium": "900mg"
+        },
+        "Youtube Channel": "Get Recipe",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginisang Kalabasa",
+        "Servings": 4,
+        "Ingredients": [
+            "500g squash (kalabasa), peeled and cubed",
+            "200g pork belly or shrimp (optional), diced",
+            "1 medium onion, chopped",
+            "3 cloves garlic, minced",
+            "1 medium tomato, chopped",
+            "1 1/2 cups water or chicken broth",
+            "2 tbsp fish sauce or soy sauce",
+            "2 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "220 kcal",
+            "Protein": "8g (with pork or shrimp)",
+            "Carbohydrates": "20g",
+            "Fat": "13g",
+            "Saturated Fat": "4g",
+            "Cholesterol": "40mg (with shrimp or pork)",
+            "Sodium": "700mg"
+        },
+        "Youtube Channel": "Yummy Kitchen",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginisang Pechay with Pork",
+        "Servings": 4,
+        "Ingredients": [
+            "300g pork belly, thinly sliced",
+            "1 bunch pechay (bok choy), chopped",
+            "1 medium onion, chopped",
+            "3 cloves garlic, minced",
+            "2 medium tomatoes, chopped",
+            "1/2 cup water or chicken broth",
+            "2 tbsp fish sauce or soy sauce",
+            "1 tbsp oyster sauce (optional)",
+            "1 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "250 kcal",
+            "Protein": "18g",
+            "Carbohydrates": "8g",
+            "Fat": "18g",
+            "Saturated Fat": "6g",
+            "Cholesterol": "60mg",
+            "Sodium": "850mg"
+        },
+        "Youtube Channel": "Mommy J",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginisang Upo with Pork",
+        "Servings": 4,
+        "Ingredients": [
+            "300g pork belly or pork shoulder, thinly sliced",
+            "1 medium upo (bottle gourd), peeled and sliced into thin rounds or half-moons",
+            "1 medium onion, chopped",
+            "3 cloves garlic, minced",
+            "2 medium tomatoes, chopped",
+            "1/2 cup water or chicken broth",
+            "2 tbsp fish sauce or soy sauce",
+            "1 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "220 kcal",
+            "Protein": "15g",
+            "Carbohydrates": "8g",
+            "Fat": "15g",
+            "Saturated Fat": "6g",
+            "Cholesterol": "50mg",
+            "Sodium": "750mg"
+        },
+        "Youtube Channel": "Yabi's Kitchen",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginisang Talong with Pork",
+        "Servings": 4,
+        "Ingredients": [
+            "300g pork belly or pork shoulder, thinly sliced",
+            "2 medium eggplants (talong), sliced into rounds",
+            "1 medium onion, chopped",
+            "3 cloves garlic, minced",
+            "2 medium tomatoes, chopped",
+            "1/2 cup water or chicken broth",
+            "2 tbsp fish sauce or soy sauce",
+            "1 tbsp cooking oil",
+            "Salt and pepper to taste",
+            "1/2 tsp soy sauce or oyster sauce (optional, for added flavor)"
+        ],
+        "Nutritional Info": {
+            "Calories": "250 kcal",
+            "Protein": "15g",
+            "Carbohydrates": "10g",
+            "Fat": "18g",
+            "Saturated Fat": "7g",
+            "Cholesterol": "60mg",
+            "Sodium": "800mg"
+        },
+        "Youtube Channel": "Muy Sabor",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginataang Kalabasa with Crabs",
+        "Servings": 4,
+        "Ingredients": [
+            "500g crabs (preferably mud crabs or blue crabs), cleaned and halved",
+            "2 cups squash (kalabasa), peeled and cubed",
+            "1 cup coconut milk",
+            "1/2 cup coconut cream",
+            "1 small onion, chopped",
+            "3 cloves garlic, minced",
+            "1 thumb-sized ginger, sliced into strips",
+            "2 tbsp shrimp paste (bagoong alamang)",
+            "2 tbsp fish sauce",
+            "1-2 green chili peppers (optional)",
+            "1 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "350 kcal",
+            "Protein": "20g",
+            "Carbohydrates": "15g",
+            "Fat": "25g",
+            "Saturated Fat": "18g",
+            "Cholesterol": "60mg",
+            "Sodium": "900mg"
+        },
+        "Youtube Channel": "Yummy Kitchen",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Kusidong Bangus",
+        "Servings": 4,
+        "Ingredients": [
+            "1 medium bangus (milkfish), cleaned and filleted",
+            "1 medium onion, chopped",
+            "2 tomatoes, chopped",
+            "3 cloves garlic, minced",
+            "2 tbsp fish sauce",
+            "1 tbsp soy sauce",
+            "1/2 cup water",
+            "1/4 tsp ground black pepper",
+            "1 tbsp cooking oil",
+            "1-2 green chili peppers (optional)"
+        ],
+        "Nutritional Info": {
+            "Calories": "250 kcal",
+            "Protein": "25g",
+            "Carbohydrates": "8g",
+            "Fat": "14g",
+            "Saturated Fat": "2g",
+            "Cholesterol": "60mg",
+            "Sodium": "800mg"
+        },
+        "Youtube Channel": "Takehome Kusinero",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+     {
+        "Recipe Name": "Paksiw na Tilapia",
+        "Servings": 4,
+        "Ingredients": [
+            "4 medium tilapia, cleaned and gutted",
+            "1 medium onion, sliced",
+            "3 cloves garlic, minced",
+            "2 medium tomatoes, quartered",
+            "1/2 cup vinegar",
+            "1 cup water",
+            "2 tbsp fish sauce",
+            "1 tbsp brown sugar",
+            "2-3 banana peppers or long green chilies (optional)",
+            "1/4 tsp ground black pepper",
+            "2 tbsp cooking oil"
+        ],
+        "Nutritional Info": {
+            "Calories": "200 kcal",
+            "Protein": "30g",
+            "Carbohydrates": "8g",
+            "Fat": "6g",
+            "Saturated Fat": "1g",
+            "Cholesterol": "70mg",
+            "Sodium": "600mg"
+        },
+        "Youtube Channel": "YUMMY Ph",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ginataang Sitaw",
+        "Servings": 4,
+        "Ingredients": [
+            "2 cups string beans (sitaw), cut into 2-inch lengths",
+            "200g pork belly or shrimp (optional), sliced or peeled",
+            "1 can (400ml) coconut milk",
+            "1/2 cup coconut cream (optional for richer flavor)",
+            "1 small onion, chopped",
+            "3 cloves garlic, minced",
+            "1 thumb-sized ginger, sliced into strips",
+            "1-2 green chili peppers (optional)",
+            "2 tbsp shrimp paste (bagoong alamang) or fish sauce",
+            "1 tbsp cooking oil",
+            "Salt and pepper to taste"
+        ],
+        "Nutritional Info": {
+            "Calories": "270 kcal",
+            "Protein": "15g (with pork or shrimp)",
+            "Carbohydrates": "15g",
+            "Fat": "20g",
+            "Saturated Fat": "15g",
+            "Cholesterol": "50mg (with pork or shrimp)",
+            "Sodium": "700mg"
+        },
+        "Youtube Channel": "The Jarcias",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Tinola",
+        "Servings": 4,
+        "Ingredients": [
+            "500g chicken (preferably bone-in pieces like thighs or drumsticks)",
+            "1 medium onion, chopped",
+            "3 cloves garlic, minced",
+            "1 thumb-sized ginger, sliced into strips",
+            "1 small green papaya, peeled and sliced into thin wedges (or chayote as an alternative)",
+            "1 bunch of malunggay (moringa) leaves or spinach",
+            "6 cups water or chicken broth",
+            "2 tbsp fish sauce",
+            "1 tbsp soy sauce (optional)",
+            "2 tbsp cooking oil",
+            "Salt and pepper to taste",
+            "1-2 green chili peppers (optional for added spice)"
+        ],
+        "Nutritional Info": {
+            "Calories": "250 kcal",
+            "Protein": "22g",
+            "Carbohydrates": "12g",
+            "Fat": "14g",
+            "Saturated Fat": "4g",
+            "Cholesterol": "70mg",
+            "Sodium": "800mg"
+        },
+        "Youtube Channel": "Q's Everyday Cravings",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Halo-Halo",
+        "Servings": 4,
+        "Ingredients": [
+            "1 cup shaved ice (or crushed ice)",
+            "1/2 cup sweetened red beans (or any sweetened legumes like garbanzos or mung beans)",
+            "1/2 cup sweetened saba bananas (sliced)",
+            "1/2 cup sweetened jackfruit (langka), sliced",
+            "1/2 cup sweetened coconut (macapuno), shredded",
+            "1/2 cup leche flan (flan de leche), cut into cubes",
+            "1/4 cup nata de coco (optional)",
+            "1/4 cup kaong (sugar palm seeds)",
+            "1 scoop ube ice cream (optional, for extra flavor)",
+            "1/2 cup evaporated milk or condensed milk",
+            "1 tbsp sugar (optional, to taste)"
+        ],
+        "Nutritional Info": {
+            "Calories": "350-450 kcal",
+            "Protein": "5g",
+            "Carbohydrates": "75g",
+            "Fat": "10g",
+            "Saturated Fat": "3g",
+            "Cholesterol": "40mg",
+            "Sodium": "90mg"
+        },
+        "Youtube Channel": "YUMMY Ph",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Leche Flan",
+        "Servings": 4,
+        "Ingredients": [
+            "1 can (390g) condensed milk",
+            "1 can (370ml) evaporated milk",
+            "6 large egg yolks",
+            "1 tsp vanilla extract",
+            "1/2 cup sugar (for caramel)",
+            "1 tbsp water (for caramel)"
+        ],
+        "Nutritional Info": {
+            "Calories": "250 kcal",
+            "Protein": "6g",
+            "Carbohydrates": "35g",
+            "Fat": "10g",
+            "Saturated Fat": "4g",
+            "Cholesterol": "150mg",
+            "Sodium": "200mg"
+        },
+        "Youtube Channel": "Chef Tatung",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Turon (Banana Lumpia)",
+        "Servings": 4,
+        "Ingredients": [
+            "4 large saba bananas (or plantains), peeled and sliced into thin strips",
+            "1/2 cup brown sugar",
+            "1/4 tsp cinnamon powder (optional)",
+            "8-10 spring roll wrappers (lumpia wrappers)",
+            "1/2 cup jackfruit (langka), cut into strips (optional)",
+            "1/4 cup cooking oil (for frying)"
+        ],
+        "Nutritional Info": {
+            "Calories": "220-250 kcal",
+            "Protein": "2g",
+            "Carbohydrates": "50g",
+            "Fat": "6g",
+            "Saturated Fat": "1g",
+            "Cholesterol": "0mg",
+            "Sodium": "50mg"
+        },
+        "Youtube Channel": "YUMMY Ph",
+        "Nutritional Information Source": "VerywellFit.com"
+    },
+    {
+        "Recipe Name": "Ukoy (Shrimp Fritters)",
+        "Servings": 4,
+        "Ingredients": [
+            "1/2 lb (225g) small shrimp, peeled and deveined",
+            "2 cups bean sprouts (optional, or you can use sweet potato strings)",
+            "1 medium carrot, julienned",
+            "1/2 cup flour (all-purpose or rice flour)",
+            "1/4 cup cornstarch",
+            "1/2 cup cold water",
+            "1 egg, beaten",
+            "2 cloves garlic, minced",
+            "1 small onion, chopped",
+            "1/4 tsp ground black pepper",
+            "1/4 tsp salt",
+            "1/4 tsp paprika (optional for extra flavor)",
+            "1-2 cups cooking oil (for frying)"
+        ],
+        "Nutritional Info": {
+            "Calories": "200-250 kcal",
+            "Protein": "15g",
+            "Carbohydrates": "18g",
+            "Fat": "10g",
+            "Saturated Fat": "1g",
+            "Cholesterol": "80mg",
+            "Sodium": "400mg"
+        },
+        "Youtube Channel": "GetRecipe",
+        "Nutritional Information Source": "VerywellFit.com"
+    }
+    
+]
+
