@@ -54,5 +54,6 @@ flutter:
     - assets/icons/
     - assets/ingredients/
     - assets/db/
+    - assets/fixed-data/recipe.json
 
     # Author of the app : Good luck with your project

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:platepal/database_helper.dart';
 import 'package:flutter/services.dart';
+import 'package:platepal/database_helper.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:platepal/components/AddToMealPlannerCard.dart';
@@ -12,7 +12,6 @@ class RecipePreviewPage extends StatefulWidget {
   const RecipePreviewPage({super.key, required this.recipeId});
 
   @override
-  // ignore: library_private_types_in_public_api
   _RecipePreviewPageState createState() => _RecipePreviewPageState();
 }
 
@@ -30,7 +29,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     super.initState();
     _recipeFuture = _loadRecipe();
     _ingredientsFuture = _loadIngredients();
-    _fixedDataFuture = _loadFixedData(); 
+    _fixedDataFuture = _loadFixedData();
   }
 
   Future<Map<String, dynamic>> _loadRecipe() async {
@@ -67,8 +66,18 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     );
   }
 
+  Future<void> _toggleStarred() async {
+    final newStarredValue = _isStarred ? 0 : 1;
+    await DatabaseHelper.instance
+        .updateRecipeStarred(widget.recipeId, newStarredValue);
+    setState(() {
+      _isStarred = !_isStarred;
+    });
+  }
+
   void _initializeVideoPlayer(String videoPath) async {
-    _videoPlayerController = VideoPlayerController.asset('assets/videos/$videoPath');
+    _videoPlayerController =
+        VideoPlayerController.asset('assets/videos/$videoPath');
     await _videoPlayerController!.initialize();
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController!,
@@ -82,24 +91,13 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
         color: Colors.grey,
       ),
       materialProgressColors: ChewieProgressColors(
-        // ignore: use_build_context_synchronously
         playedColor: Theme.of(context).primaryColor,
-        // ignore: use_build_context_synchronously
         handleColor: Theme.of(context).primaryColor,
         backgroundColor: Colors.grey,
-        // ignore: use_build_context_synchronously
         bufferedColor: Theme.of(context).primaryColorLight,
       ),
     );
     setState(() {});
-  }
-
-  Future<void> _toggleStarred() async {
-    final newStarredValue = _isStarred ? 0 : 1;
-    await DatabaseHelper.instance.updateRecipeStarred(widget.recipeId, newStarredValue);
-    setState(() {
-      _isStarred = !_isStarred;
-    });
   }
 
   // void _incrementServings() {
@@ -127,7 +125,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<Map<String, dynamic>>(
-        future: _recipeFuture,
+        future: _recipeFuture, // This is used to get data from the database
         builder: (context, recipeSnapshot) {
           if (recipeSnapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -138,41 +136,95 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
           }
 
           final recipe = recipeSnapshot.data!;
-          return CustomScrollView(
-            slivers: [
-              _buildSliverAppBar(recipe),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildRecipeInfo(recipe),
-                      _buildServingAdjuster(),
-                      const SizedBox(height: 16),
-                      if (recipe['vid'] != null) _buildVideoCard(),
-                      const SizedBox(height: 16),
-                      _buildIngredientsCard(),
-                      const SizedBox(height: 16),
-                      _buildInfoCard(
-                        title: 'Instructions',
-                        content: _buildNumberedInstructions(recipe['instructions']),
-                      ),
-                      const SizedBox(height: 16),
-                      AddToMealPlannerCard(
+
+          // Load JSON data asynchronously using FutureBuilder
+          return FutureBuilder<String>(
+            future: rootBundle.loadString('assets/fixed-data/recipe.json'),
+            builder: (context, jsonSnapshot) {
+              if (jsonSnapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (jsonSnapshot.hasError) {
+                return Center(
+                    child: Text('Error loading JSON: ${jsonSnapshot.error}'));
+              } else if (!jsonSnapshot.hasData) {
+                return const Center(child: Text('No fixed recipe data found.'));
+              }
+
+              // Decode the JSON data
+              final jsonData = json.decode(jsonSnapshot.data!);
+
+              // Search for the recipe by matching the "Recipe Name"
+              final fixedData = (jsonData as List).firstWhere(
+                (r) => r['Recipe Name'] == recipe['name'],
+                orElse: () => {}, // Return an empty map if not found
+              );
+
+              // Extract the Calories from the Nutritional Info
+              final calories = fixedData.isNotEmpty &&
+                      fixedData['Nutritional Info'] != null
+                  ? fixedData['Nutritional Info']['Calories']
+                  : 'Calories not available'; // Default message if Calories are not found
+
+              final youtube_channel =
+                  fixedData.isNotEmpty && fixedData['Youtube Channel'] != null
+                      ? fixedData['Youtube Channel']
+                      : 'Youtube channel not indicated';
+
+              final resource_nutrition = fixedData.isNotEmpty &&
+                      fixedData['Nutritional Information Source'] != null
+                  ? fixedData['Nutritional Information Source']
+                  : 'Not indicated';
+
+              return CustomScrollView(
+                slivers: [
+                  _buildSliverAppBar(recipe),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _buildRecipeInfo(recipe, calories),
+                          _buildServingAdjuster(),
+                          const SizedBox(height: 16),
+                          if (recipe['vid'] != null)
+                            _buildVideoCard(youtube_channel),
+                          const SizedBox(height: 16),
+                          _buildInfoCard(
+                            title: 'Ingredients',
+                            content: _buildIngredientsList(
+                                fixedData['Ingredients'] ?? []),
+                          ),
+                          const SizedBox(height: 16),
+                          _buildInfoCard(
+                            title: 'Instructions',
+                            content: _buildNumberedInstructions(
+                                recipe['instructions']),
+                          ),
+                          const SizedBox(height: 16),
+                          AddToMealPlannerCard(
                         recipeId: widget.recipeId,
                         recipeName: recipe['name'],
                       ),
                       const SizedBox(height: 16),
-                      _buildInfoCard(
-                        title: 'Nutritional Information',
-                        content: _buildNutritionalInfo(recipe),
+                          // _buildInfoCard(
+                          //   title: 'Nutritional Information',
+                          //   content: _buildNutritionalInfo(
+                          //       fixedData['Nutritional Info'] ?? {}),
+                          // ),
+                          _buildNutritionColumn(
+                            'Nutritional Information',
+                            _buildNutritionalInfo(
+                                fixedData['Nutritional Info'] ?? {}),
+                              resource_nutrition,
+                          )
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           );
         },
       ),
@@ -222,7 +274,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     );
   }
 
-  Widget _buildRecipeInfo(Map<String, dynamic> recipe) {
+  Widget _buildRecipeInfo(Map<String, dynamic> recipe, String calories) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -234,13 +286,13 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildInfoColumn('Difficulty', recipe['difficulty']),
-          _buildNutritionRow('Calories: ', recipe['calories'], 'kcal'),
+          _buildNutritionRow('Calories: ', calories, 'kcal'),
         ],
       ),
     );
   }
 
-Widget _buildServingAdjuster() {
+  Widget _buildServingAdjuster() {
     return const Card(
       elevation: 2,
       margin: EdgeInsets.symmetric(vertical: 16),
@@ -280,7 +332,8 @@ Widget _buildServingAdjuster() {
       ),
     );
   }
-  Widget _buildVideoCard() {
+
+  Widget _buildVideoCard(String youtube_channel) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -303,6 +356,53 @@ Widget _buildServingAdjuster() {
               )
             else
               const Center(child: CircularProgressIndicator()),
+            const SizedBox(
+              height: 16,
+            ),
+            Text(
+              'Youtube channel: $youtube_channel',
+              textAlign: TextAlign.center,
+              // ignore: prefer_const_constructors
+              style: TextStyle(
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNutritionColumn(String label, Widget content, String resource) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            content,
+            const SizedBox(height: 16,),
+
+            Text(
+              'Nutritional Resouce Information: $resource',
+              textAlign: TextAlign.center,
+              // ignore: prefer_const_constructors
+              style: TextStyle(
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey),
+            ),
           ],
         ),
       ),
@@ -325,41 +425,21 @@ Widget _buildServingAdjuster() {
     );
   }
 
-  Widget _buildIngredientsCard() {
-    return FutureBuilder<List<Map<String, dynamic>>>(
-      future: _ingredientsFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
-        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No ingredients found.'));
-        }
-
-        final ingredients = snapshot.data!;
-        return _buildInfoCard(
-          title: 'Ingredients',
-          content: Column(
+  Widget _buildIngredientsList(List<dynamic> ingredients) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: ingredients.map((ingredient) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 4.0),
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: ingredients.map((ingredient) {
-              num adjustedQuantity = (ingredient['quantity'] as num) * _servings;
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 4.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('• ', style: TextStyle(fontSize: 16)),
-                    Expanded(
-                      child: Text('${adjustedQuantity.toStringAsFixed(1)} ${ingredient['unit']} ${ingredient['name']}'),
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
+            children: [
+              const Text('• ', style: TextStyle(fontSize: 16)),
+              Expanded(child: Text(ingredient)),
+            ],
           ),
         );
-      },
+      }).toList(),
     );
   }
 
@@ -387,40 +467,34 @@ Widget _buildServingAdjuster() {
     );
   }
 
-  Widget _buildNutritionalInfo(Map<String, dynamic> recipe) {
+  Widget _buildNutritionalInfo(Map<String, dynamic> nutrition) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          children: [
-            _buildNutritionRow('Calories', recipe['calories'], 'kcal'),
-            _buildNutritionRow('Protein', recipe['protein'], 'g'),
-            _buildNutritionRow('Carbohydrates', recipe['carbohydrates'], 'g'),
-            _buildNutritionRow('Fat', recipe['fat'], 'g'),
-            _buildNutritionRow('Saturated Fat', recipe['saturated_fat'], 'g'),
-            _buildNutritionRow('Cholesterol', recipe['cholesterol'], 'mg'),
-            _buildNutritionRow('Sodium', recipe['sodium'], 'mg'),
-          ],
-        ),
-        const SizedBox(height: 8),
-        const Text(
-          'Note: Nutritional values are estimates and may vary. Values shown are for the entire recipe.',
-          style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic, color: Colors.grey),
-        ),
-      ],
+      children: nutrition.entries.map((entry) {
+        final value = entry.value?.toString() ?? 'N/A';
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(entry.key,
+                  style: const TextStyle(fontWeight: FontWeight.w500)),
+              Text(value),
+            ],
+          ),
+        );
+      }).toList(),
     );
   }
 
-  Widget _buildNutritionRow(String label, dynamic value, String unit) {
-    num scaledValue = (value as num) * _servings;
-    
+  Widget _buildNutritionRow(String label, String calories, String unit) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
-          Text('${scaledValue.toStringAsFixed(1)} $unit'),
+          Text('$calories'),
         ],
       ),
     );
@@ -452,7 +526,8 @@ Widget _buildServingAdjuster() {
                 ),
                 child: Text(
                   '${idx + 1}',
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(width: 12),
