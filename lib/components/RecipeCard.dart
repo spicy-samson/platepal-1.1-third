@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:platepal/pages/RecipePreviewPage.dart';
 import 'package:platepal/database_helper.dart';
@@ -6,17 +8,20 @@ class RecipeCard extends StatefulWidget {
   final Map<String, dynamic> recipe;
   final int recipeId;
   final VoidCallback? onStarToggle;
+  final String cookingTime; // From JSON
+  final String calories; // From JSON
   final double imageHeight = 200.0; // Fixed height for the image
 
   const RecipeCard({
     super.key,
     required this.recipe,
     required this.recipeId,
+    required this.cookingTime,
+    required this.calories,
     this.onStarToggle,
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _RecipeCardState createState() => _RecipeCardState();
 }
 
@@ -31,7 +36,8 @@ class _RecipeCardState extends State<RecipeCard> {
 
   void _toggleStar() async {
     final newStarredValue = isStarred ? 0 : 1;
-    await DatabaseHelper.instance.updateRecipeStarred(widget.recipeId, newStarredValue);
+    await DatabaseHelper.instance
+        .updateRecipeStarred(widget.recipeId, newStarredValue);
     setState(() {
       isStarred = !isStarred;
     });
@@ -59,7 +65,8 @@ class _RecipeCardState extends State<RecipeCard> {
               alignment: Alignment.topRight,
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(12)),
                   child: Image.asset(
                     'assets/images/${widget.recipe['img'] ?? 'default_recipe.jpg'}',
                     height: widget.imageHeight,
@@ -105,7 +112,7 @@ class _RecipeCardState extends State<RecipeCard> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Difficulty: ${widget.recipe['difficulty'] ?? 'N/A'}',
+                    'Cooking Time: ${widget.cookingTime}', // From JSON
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey[600],
@@ -113,7 +120,7 @@ class _RecipeCardState extends State<RecipeCard> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Calories: ${widget.recipe['calories'] ?? 'N/A'} kcal',
+                    'Calories: ${widget.calories}', // From JSON
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey[600],
