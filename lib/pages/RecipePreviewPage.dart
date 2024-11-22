@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:platepal/database_helper.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:platepal/components/AddToMealPlannerCard.dart';
@@ -17,6 +19,7 @@ class RecipePreviewPage extends StatefulWidget {
 class _RecipePreviewPageState extends State<RecipePreviewPage> {
   late Future<Map<String, dynamic>> _recipeFuture;
   late Future<List<Map<String, dynamic>>> _ingredientsFuture;
+  late Future<Map<String, dynamic>> _fixedDataFuture;
   bool _isStarred = false;
   int _servings = 1;
   VideoPlayerController? _videoPlayerController;
@@ -27,6 +30,7 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     super.initState();
     _recipeFuture = _loadRecipe();
     _ingredientsFuture = _loadIngredients();
+    _fixedDataFuture = _loadFixedData(); 
   }
 
   Future<Map<String, dynamic>> _loadRecipe() async {
@@ -42,6 +46,25 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
 
   Future<List<Map<String, dynamic>>> _loadIngredients() async {
     return await DatabaseHelper.instance.getRecipeIngredients(widget.recipeId);
+  }
+
+  Future<Map<String, dynamic>> _loadFixedData() async {
+    final String response =
+        await rootBundle.loadString('assets/fixed-data/recipe.json');
+    final List<dynamic> data = json.decode(response);
+    return Map.fromEntries(
+      data.map((item) {
+        final name = item['Recipe Name'] ?? 'Unknown';
+        final ingredients = item['Ingredients'] ?? [];
+        final nutrition = item['Nutritional Info'] ?? {};
+
+        return MapEntry(name, {
+          'name': name,
+          'Ingredients': ingredients,
+          'Nutritional Info': nutrition,
+        });
+      }),
+    );
   }
 
   void _initializeVideoPlayer(String videoPath) async {
@@ -79,19 +102,19 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     });
   }
 
-  void _incrementServings() {
-    setState(() {
-      _servings++;
-    });
-  }
+  // void _incrementServings() {
+  //   setState(() {
+  //     _servings++;
+  //   });
+  // }
 
-  void _decrementServings() {
-    if (_servings > 1) {
-      setState(() {
-        _servings--;
-      });
-    }
-  }
+  // void _decrementServings() {
+  //   if (_servings > 1) {
+  //     setState(() {
+  //       _servings--;
+  //     });
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -217,51 +240,46 @@ class _RecipePreviewPageState extends State<RecipePreviewPage> {
     );
   }
 
-  Widget _buildServingAdjuster() {
-    return Card(
+Widget _buildServingAdjuster() {
+    return const Card(
       elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 16),
+      margin: EdgeInsets.symmetric(vertical: 16),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Servings',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: _decrementServings,
-                ),
+                // IconButton(
+                //   icon: const Icon(Icons.remove),
+                //   onPressed: _decrementServings,
+                // ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    '$_servings',
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    '4',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: _incrementServings,
-                ),
+                // IconButton(
+                //   icon: const Icon(Icons.add),
+                //   onPressed: _incrementServings,
+                // ),
               ],
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Note: Ingredient quantities are automatically adjusted. For large batch cooking, please refer to additional sources to ensure accuracy.',
-              style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic, color: Colors.grey),
-            ),
+            SizedBox(height: 8),
           ],
         ),
       ),
     );
   }
-
   Widget _buildVideoCard() {
     return Card(
       elevation: 4,
